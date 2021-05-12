@@ -5,7 +5,6 @@ import _isEmpty from 'lodash/isEmpty'
 import Input from '../../ui/Input'
 import Modal from '../../ui/Modal'
 import Button from '../../ui/Button'
-import './style.css'
 
 export default class CreateNewLayoutModal extends React.PureComponent {
   static propTypes = {
@@ -16,13 +15,6 @@ export default class CreateNewLayoutModal extends React.PureComponent {
   state = {
     label: '',
     error: '',
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.onLabelChange = this.onLabelChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
   }
 
   onLabelChange = (label) => {
@@ -49,7 +41,6 @@ export default class CreateNewLayoutModal extends React.PureComponent {
     return (
       <Modal
         onClose={onClose}
-        className='hfui-createnewlayoutmodal__wrapper'
         label='Add Layout'
         actions={(
           <Button
@@ -64,8 +55,8 @@ export default class CreateNewLayoutModal extends React.PureComponent {
       >
         <Input
           type='text'
-          placeholder='Layout Name'
           value={label}
+          placeholder='Layout Name'
           onChange={this.onLabelChange}
         />
 
