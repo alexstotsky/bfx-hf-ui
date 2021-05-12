@@ -1,16 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _isEmpty from 'lodash/isEmpty'
 
 import Input from '../../ui/Input'
 import Modal from '../../ui/Modal'
 import Button from '../../ui/Button'
-
-import { propTypes, defaultProps } from './CreateNewLayoutModal.props'
 import './style.css'
 
-export default class CreateNewLayoutModal extends React.Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+export default class CreateNewLayoutModal extends React.PureComponent {
+  static propTypes = {
+    onClose: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+  }
 
   state = {
     label: '',
@@ -24,11 +25,11 @@ export default class CreateNewLayoutModal extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onLabelChange(label) {
+  onLabelChange = (label) => {
     this.setState(() => ({ label }))
   }
 
-  onSubmit() {
+  onSubmit = () => {
     const { label } = this.state
     const { onSubmit, onClose } = this.props
 
