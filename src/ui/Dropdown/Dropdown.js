@@ -6,7 +6,7 @@ import OnClickOutside from 'react-onclickoutside'
 
 import './style.css'
 
-class Dropdown extends React.Component {
+class Dropdown extends React.PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string,
@@ -26,12 +26,6 @@ class Dropdown extends React.Component {
     open: false,
   }
 
-  constructor(props) {
-    super(props)
-
-    this.onToggleOpen = this.onToggleOpen.bind(this)
-  }
-
   handleClickOutside() {
     this.setState(() => ({ open: false }))
   }
@@ -43,7 +37,7 @@ class Dropdown extends React.Component {
     this.setState(() => ({ open: false }))
   }
 
-  onToggleOpen() {
+  onToggleOpen = () => {
     this.setState(({ open }) => ({ open: !open }))
   }
 
