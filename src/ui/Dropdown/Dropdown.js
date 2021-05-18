@@ -1,14 +1,26 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ClassNames from 'classnames'
 import Scrollbars from 'react-custom-scrollbars'
 import OnClickOutside from 'react-onclickoutside'
 
-import { propTypes, defaultProps } from './Dropdown.props'
 import './style.css'
 
 class Dropdown extends React.Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes = {
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    value: PropTypes.string,
+    options: PropTypes.array.isRequired,
+    highlight: PropTypes.bool,
+    fallback: PropTypes.string,
+    disabled: PropTypes.bool,
+    isOpen: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    value: '',
+  }
 
   state = {
     open: false,
