@@ -8,18 +8,23 @@ import './style.css'
 
 class Dropdown extends React.PureComponent {
   static propTypes = {
-    onChange: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool,
     label: PropTypes.string,
     value: PropTypes.string,
-    options: PropTypes.array.isRequired,
+    disabled: PropTypes.bool,
     highlight: PropTypes.bool,
     fallback: PropTypes.string,
-    disabled: PropTypes.bool,
-    isOpen: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    options: PropTypes.instanceOf(Array).isRequired,
   }
 
   static defaultProps = {
     value: '',
+    label: '',
+    fallback: '',
+    isOpen: false,
+    disabled: false,
+    highlight: false,
   }
 
   state = {
