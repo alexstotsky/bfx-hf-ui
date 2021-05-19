@@ -9,9 +9,7 @@ import {
   COMPONENT_TYPES, COMPONENT_LABELS,
 } from '../GridLayout/GridLayout.helpers'
 
-import './style.css'
-
-export default class AddLayoutComponentModal extends React.Component {
+export default class AddLayoutComponentModal extends React.PureComponent {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
@@ -22,18 +20,11 @@ export default class AddLayoutComponentModal extends React.Component {
     error: '',
   }
 
-  constructor(props) {
-    super(props)
-
-    this.onComponentTypeChange = this.onComponentTypeChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  onComponentTypeChange(componentType) {
+  onComponentTypeChange = (componentType) => {
     this.setState(() => ({ componentType }))
   }
 
-  onSubmit() {
+  onSubmit = () => {
     const { componentType } = this.state
     const { onSubmit, onClose } = this.props
 
@@ -53,8 +44,8 @@ export default class AddLayoutComponentModal extends React.Component {
     return (
       <Modal
         onClose={onClose}
-        className='hfui-addlayoutcomponentmodal__wrapper'
         label='Add Component'
+        className='hfui-addlayoutcomponentmodal__wrapper'
         actions={(
           <Button
             green
