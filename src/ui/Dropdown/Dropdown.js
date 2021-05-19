@@ -9,6 +9,7 @@ import './style.css'
 class Dropdown extends React.PureComponent {
   static propTypes = {
     isOpen: PropTypes.bool,
+    icon: PropTypes.string,
     label: PropTypes.string,
     value: PropTypes.string,
     disabled: PropTypes.bool,
@@ -21,6 +22,7 @@ class Dropdown extends React.PureComponent {
   static defaultProps = {
     value: '',
     label: '',
+    icon: null,
     fallback: '',
     isOpen: false,
     disabled: false,
