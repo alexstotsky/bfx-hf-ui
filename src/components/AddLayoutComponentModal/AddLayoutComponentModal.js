@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _isEmpty from 'lodash/isEmpty'
 
 import Modal from '../../ui/Modal'
@@ -8,12 +9,13 @@ import {
   COMPONENT_TYPES, COMPONENT_LABELS,
 } from '../GridLayout/GridLayout.helpers'
 
-import { propTypes, defaultProps } from './AddLayoutComponentModal.props'
 import './style.css'
 
 export default class AddLayoutComponentModal extends React.Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes = {
+    onClose: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+  }
 
   state = {
     componentType: COMPONENT_LABELS.CHART,
