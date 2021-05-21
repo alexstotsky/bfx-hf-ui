@@ -5,7 +5,7 @@ import _isEmpty from 'lodash/isEmpty'
 import Button from '../../ui/Button'
 import Input from '../../ui/Input'
 
-export default class AuthenticationInit extends React.Component {
+export default class AuthenticationInit extends React.PureComponent {
   static propTypes = {
     onInit: PropTypes.func.isRequired,
   }
