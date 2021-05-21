@@ -7,19 +7,17 @@ import MANIFEST from '../../../package.json'
 
 import './style.css'
 
-export default class StatusBar extends React.Component {
+export default class StatusBar extends React.PureComponent {
   static propTypes = {
     wsConnected: PropTypes.bool,
     remoteVersion: PropTypes.string,
     apiClientState: PropTypes.number,
-    currentExchange: PropTypes.string,
   }
 
   static defaultProps = {
     remoteVersion: '',
     wsConnected: false,
     apiClientState: null,
-    currentExchange: '',
   }
 
   render() {
