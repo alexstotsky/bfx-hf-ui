@@ -1,18 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _isEmpty from 'lodash/isEmpty'
 
 import Button from '../../ui/Button'
 import Input from '../../ui/Input'
-import { propTypes, defaultProps } from './AuthenticationInitForm.props'
 
 export default class AuthenticationInit extends React.Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes = {
+    onInit: PropTypes.func.isRequired,
+  }
 
   state = {
+    error: '',
     password: '',
     confirmPassword: '',
-    error: '',
   }
 
   constructor(props) {
