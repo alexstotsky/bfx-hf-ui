@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ClassNames from 'classnames'
 import NavbarButton from '../NavbarButton'
 import MANIFEST from '../../../package.json'
@@ -6,8 +7,19 @@ import { propTypes, defaultProps } from './StatusBar.props'
 import './style.css'
 
 export default class StatusBar extends React.Component {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes = {
+    wsConnected: PropTypes.bool,
+    remoteVersion: PropTypes.string,
+    apiClientStates: PropTypes.object,
+    currentExchange: PropTypes.string,
+  }
+
+  static defaultProps = {
+    remoteVersion: '',
+    wsConnected: false,
+    apiClientStates: {},
+    currentExchange: '',
+  }
 
   render() {
     const {
