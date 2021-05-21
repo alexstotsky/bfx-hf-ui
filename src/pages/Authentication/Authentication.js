@@ -1,17 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import HFIcon from '../../ui/HFIcon'
 import AuthenticationInitForm from './AuthenticationInitForm'
 import AuthenticationUnlockForm from './AuthenticationUnlockForm'
 import AuthenticationConnectingForm from './AuthenticationConnectingForm'
-import { propTypes, defaultProps } from './Authentication.props'
 import { version } from '../../../package.json'
 
 import './style.css'
 
 export default class Authentication extends React.PureComponent {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes ={
+    onInit: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired,
+    onUnlock: PropTypes.func.isRequired,
+  }
 
   render() {
     const {
