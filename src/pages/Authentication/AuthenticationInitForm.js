@@ -16,23 +16,15 @@ export default class AuthenticationInit extends React.Component {
     confirmPassword: '',
   }
 
-  constructor(props) {
-    super(props)
-
-    this.onPasswordChange = this.onPasswordChange.bind(this)
-    this.onConfirmPasswordChange = this.onConfirmPasswordChange.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  onPasswordChange(password) {
+  onPasswordChange = (password) => {
     this.setState(() => ({ password }))
   }
 
-  onConfirmPasswordChange(confirmPassword) {
+  onConfirmPasswordChange = (confirmPassword) => {
     this.setState(() => ({ confirmPassword }))
   }
 
-  onSubmit() {
+  onSubmit = () => {
     const { password, confirmPassword } = this.state
     const { onInit } = this.props
 
@@ -68,25 +60,25 @@ export default class AuthenticationInit extends React.Component {
 
           <Input
             type='password'
-            autocomplete='new-password'
-            placeholder='Password'
             value={password}
+            placeholder='Password'
+            autocomplete='new-password'
             onChange={this.onPasswordChange}
           />
 
           <Input
             type='password'
+            value={confirmPassword}
             autocomplete='new-password'
             placeholder='Confirm password'
-            value={confirmPassword}
             onChange={this.onConfirmPasswordChange}
           />
 
           <Button
+            green
             onClick={this.onSubmit}
             disabled={!submitReady}
             label='Save Credentials'
-            green
           />
 
           {error && (
